@@ -1,22 +1,70 @@
-*{
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
-body{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background: #222;
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #222;
+  font-family: "Roboto", sans-serif;
+  background-image: url(https://source.unsplash.com/1600x900/?nature,water);
 }
-.card{
-    background: #eaeaea;
-    padding: 2em;
-    margin: 1em;
-    border-radius: 30px;
+.card {
+  padding: 2em;
+  margin: 1em;
+  border-radius: 30px;
+  width: 100%;
+  max-width: 420px;
+  color: whitesmoke;
+  background: rgba(0, 0, 0, 0.6);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+.search {
+  display: flex;
+  align-items: center;
+  .search-bar {
     width: 100%;
-    max-width: 420px;
-    
-    
+    height: 2.5em;
+    border-radius: 20px;
+    text-align: center;
+  }
+  .search-bar:focus {
+    outline: none;
+  }
+  button {
+    margin-left: 0.5em;
+    height: 2.5em;
+    width: 2.5em;
+    border-radius: 20px;
+    cursor: pointer;
+  }
+}
+.weather {
+  margin-top: 1em;
+  * {
+    padding: 0.2em 0;
+  }
+  .city {
+    font-size: 2em;
+  }
+  .temperature {
+    display: flex;
+    align-items: center;
+    font-size: 2em;
+    p{
+        padding: 0;
+        margin-right: 0.5em;
+    }
+    .icon{
+        padding: 0;
+        margin: 0;
+    }
+  }
 }
