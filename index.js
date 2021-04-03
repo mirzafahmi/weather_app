@@ -3,7 +3,7 @@ let weather = {
   //fetching weather data from open weather map by cityname
   fetchWeather: function (cityName) {
     fetch(
-      `http://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${this.apiKeys}`
+      `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${this.apiKeys}`
     )
       .then((response) => response.json())
       .then((data) => this.displayWeather(data));
