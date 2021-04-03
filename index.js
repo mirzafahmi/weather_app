@@ -20,7 +20,7 @@ let weather = {
     document.querySelector(".temp").innerText = `${(temp - 273).toFixed(2)}°C`;
     document.querySelector(
       ".icon"
-    ).src = `http://openweathermap.org/img/wn/${icon}.png`;
+    ).src = `https://openweathermap.org/img/wn/${icon}.png`;
     document.querySelector(".description").innerText = `${description}`;
     document.querySelector(".humidity").innerText = `Humidity: ${humidity}%`;
     document.querySelector(".wind").innerText = `Wind speed: ${speed}km/h`;
