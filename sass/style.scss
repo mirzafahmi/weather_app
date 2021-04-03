@@ -5,12 +5,27 @@
 }
 body {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100vh;
   background: #222;
   font-family: "Roboto", sans-serif;
   background-image: url(https://source.unsplash.com/1600x900/?nature,water);
+  h3 {
+    font-size: 2em;
+    padding: 0.5em;
+    width: 100%;
+    max-width: 420px;
+    text-align: center;
+    color: whitesmoke;
+    background: rgba(0, 0, 0, 0.6);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+  }
 }
 .card {
   padding: 2em;
@@ -58,13 +73,26 @@ body {
     display: flex;
     align-items: center;
     font-size: 2em;
-    p{
-        padding: 0;
-        margin-right: 0.5em;
+    p {
+      padding: 0;
+      margin-right: 0.5em;
     }
-    .icon{
-        padding: 0;
-        margin: 0;
+    .icon {
+      padding: 0;
+      margin: 0;
     }
   }
+}
+.weather.loading {
+  display: none;
+  visibility: hidden;
+  max-height: 20px;
+  position: relative;
+}
+.loading::after {
+  visibility: visible;
+  content: "loading...";
+  color: whitesmoke;
+  position: absolute;
+  top: 0;
 }
