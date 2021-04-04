@@ -117,6 +117,10 @@ body h3 {
   margin: 0;
 }
 
+.weather .description {
+  text-transform: capitalize;
+}
+
 .weather.loading {
   display: none;
   visibility: hidden;

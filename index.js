@@ -3,11 +3,13 @@ let weather = {
   //fetching weather data from open weather map by cityname
   fetchWeather: function (cityName) {
     fetch(
-      `http://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${this.apiKeys}`
+      `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${this.apiKeys}`
     )
       .then((response) => response.json())
-      .then((data) => this.displayWeather(data));
+      .then((data) => this.displayWeather(data))
+      .catch(err => console.log(err));
   },
+  //destructuring data from json
   displayWeather: function (data) {
     const { name } = data;
     const { country } = data.sys;
@@ -20,26 +22,29 @@ let weather = {
     document.querySelector(".temp").innerText = `${(temp - 273).toFixed(2)}°C`;
     document.querySelector(
       ".icon"
-    ).src = `http://openweathermap.org/img/wn/${icon}.png`;
+    ).src = `https://openweathermap.org/img/wn/${icon}.png`;
     document.querySelector(".description").innerText = `${description}`;
     document.querySelector(".humidity").innerText = `Humidity: ${humidity}%`;
     document.querySelector(".wind").innerText = `Wind speed: ${speed}km/h`;
     document.querySelector(".weather").classList.remove("loading");
-    document.body.style.backgroundImage = "url('https://source.unsplash.com/1600x900/?" + name +"')";
+    document.body.style.backgroundImage =
+      "url('https://source.unsplash.com/1600x900/?" + name + "')";
   },
   search: function () {
     this.fetchWeather(document.querySelector(".search-bar").value);
   },
-  addLoading: function(){
-    document.loading.style.removeProperties("display");
+  addLoading: function () {
+    document.querySelector(".loading").style.removeProperty("display");
+  },
+  clearInput: function (){
+    document.querySelector("input").value= "";
   }
 };
 
 //search by hitting search icon
-document
-  .querySelector(".search button")
-  .addEventListener("click", () => {
+document.querySelector(".search button").addEventListener("click", () => {
   weather.search();
+  weather.clearInput();
   weather.addLoading();
 });
 
@@ -47,6 +52,7 @@ document
 document.querySelector(".search-bar").addEventListener("keyup", (event) => {
   if (event.key == "Enter") {
     weather.search();
+    weather.clearInput();
     weather.addLoading();
   }
 });

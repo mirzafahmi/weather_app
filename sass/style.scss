@@ -82,6 +82,9 @@ body {
       margin: 0;
     }
   }
+  .description{
+    text-transform: capitalize;
+  }
 }
 .weather.loading {
   display: none;
